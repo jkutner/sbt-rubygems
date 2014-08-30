@@ -30,5 +30,11 @@ And now you can run commands like this:
 $ sbt
 ...
 > gemExec cowsay "Hello World!"
+Successfully installed cowsay-0.1.0
+1 gem installed
+ ______________
+| Hello World! |
+ --------------
+ ...
+ [success] Total time: 28 s, completed Aug 30, 2014 8:46:58 AM
 ```
-
