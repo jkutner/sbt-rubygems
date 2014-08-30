@@ -38,3 +38,13 @@ Successfully installed cowsay-0.1.0
  ...
  [success] Total time: 28 s, completed Aug 30, 2014 8:46:58 AM
 ```
+
+## Warning
+
+JRuby isn't compatible with BouncyCastle 1.51. So if you use a library that depends on it, you'll have to exclude it like so:
+
+```
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "0.7.4" excludeAll(ExclusionRule("org.bouncycastle", "*")))
+```
+
+sbt-rubygems will provide BouncyCastle 1.50 for you.
