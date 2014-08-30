@@ -43,7 +43,7 @@ Successfully installed cowsay-0.1.0
 
 JRuby isn't compatible with BouncyCastle 1.51. So if you use a library that depends on it, you'll have to exclude it like so:
 
-```
+```scala
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "0.7.4" excludeAll(ExclusionRule("org.bouncycastle", "*")))
 ```
 
