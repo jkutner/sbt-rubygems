@@ -1,0 +1,2 @@
+> gemExec cowsay 'hellow world'
+$ exists target/rubygems/bin/cowsay
