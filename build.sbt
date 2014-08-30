@@ -8,7 +8,7 @@ organization := "org.jruby"
 
 scalaVersion in Global := "2.10.4"
 
-version := "1.0"
+version := "1.1-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   "org.jruby" % "jruby-complete" % "1.7.13",
