@@ -8,7 +8,7 @@ This is an sbt plugin for adding [Rubygems](http://rubygems.org/) to your projec
 Add this to your `project/plugins.sbt`
 
 ```scala
-resolvers += Resolver.url("bintray-sbt-plugin-releases", url(""http://dl.bintray.com/codefinger/sbt-plugins/"))(Resolver.ivyStylePatterns)
+resolvers += Resolver.url("bintray-sbt-plugin-releases", url("http://dl.bintray.com/codefinger/sbt-plugins/"))(Resolver.ivyStylePatterns)
 
 addSbtPlugin("org.jruby" % "sbt-rubygems" % "1.0")
 ```
