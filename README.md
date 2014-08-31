@@ -7,15 +7,15 @@ This is an sbt plugin for adding [Rubygems](http://rubygems.org/) to your projec
 
 Add this to your `project/plugins.sbt`
 
-```
-resolvers += Resolver.url("bintray-sbt-plugin-releases", url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(Resolver.ivyStylePatterns)
+```scala
+resolvers += Resolver.url("bintray-sbt-plugin-releases", url("http://dl.bintray.com/codefinger/sbt-plugins/"))(Resolver.ivyStylePatterns)
 
-addSbtPlugin("org.jruby" % "sbt-rubygems" % "1.0)
+addSbtPlugin("org.jruby" % "sbt-rubygems" % "1.0")
 ```
 
 Then add some Rubygems to your `build.sbt` like so:
 
-```
+```scala
 resolvers +=
   "rubygems-release" at "http://rubygems-proxy.torquebox.org/releases"
 
@@ -43,7 +43,7 @@ Successfully installed cowsay-0.1.0
 
 JRuby isn't compatible with BouncyCastle 1.51. So if you use a library that depends on it, you'll have to exclude it like so:
 
-```
+```scala
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "0.7.4" excludeAll(ExclusionRule("org.bouncycastle", "*")))
 ```
 
