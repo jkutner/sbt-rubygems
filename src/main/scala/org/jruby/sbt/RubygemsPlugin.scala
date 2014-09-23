@@ -2,6 +2,7 @@ package org.jruby.sbt
 
 import sbt.Keys._
 import sbt._
+import sbt.compiler.CompileFailed
 import sbt.complete._
 import complete.DefaultParsers._
 
@@ -60,8 +61,11 @@ object RubygemsPlugin extends AutoPlugin {
         }
       }
       val rubyGemsBin = rubyGemsHome / "bin"
-      jruby(rubyGemsHome).run(
+      val status = jruby(rubyGemsHome).run(
         (List("-S", rubyGemsBin.getAbsolutePath + "/" + args(0)) ++ args.slice(1, args.size)).toArray[String])
+      if (status.getStatus != 0) {
+        throw new CompileFailed(Array(), "Gem command failed!", Array())
+      }
     Thread.currentThread.setContextClassLoader(oldContextClassLoader)
   }
 }
