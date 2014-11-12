@@ -10,7 +10,7 @@ Add this to your `project/plugins.sbt`
 ```scala
 resolvers += Resolver.url("bintray-sbt-plugin-releases", url("http://dl.bintray.com/codefinger/sbt-plugins/"))(Resolver.ivyStylePatterns)
 
-addSbtPlugin("org.jruby" % "sbt-rubygems" % "1.1")
+addSbtPlugin("org.jruby" % "sbt-rubygems" % "1.2")
 ```
 
 Then add some Rubygems to your `build.sbt` like so:

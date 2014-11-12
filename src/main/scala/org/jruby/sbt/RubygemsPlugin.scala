@@ -31,6 +31,11 @@ object RubygemsPlugin extends AutoPlugin {
   override val projectSettings =
     inConfig(Compile)(baseRubygemsSettings)
 
+  /** Cleans a file path in the event it is corrupted by Windows */
+  def cleanPathForWindows(filepath:String) =
+    if(filepath.contains("\\")) "/"+filepath.replaceAllLiterally("\\", "/")
+    else filepath
+
   def jruby(rubyGemsHome: File): org.jruby.Main = {
     val ruby = new RubyInstanceConfig()
     val env = ruby.getEnvironment.asInstanceOf[java.util.Map[String,String]]
@@ -62,7 +67,7 @@ object RubygemsPlugin extends AutoPlugin {
       }
       val rubyGemsBin = rubyGemsHome / "bin"
       val status = jruby(rubyGemsHome).run(
-        (List("-S", rubyGemsBin.getAbsolutePath + "/" + args(0)) ++ args.slice(1, args.size)).toArray[String])
+        (List("-S", cleanPathForWindows(rubyGemsBin.getAbsolutePath) + "/" + args(0)) ++ args.slice(1, args.size)).toArray[String])
       if (status.getStatus != 0) {
         throw new CompileFailed(Array(), "Gem command failed!", Array())
       }
