@@ -62,7 +62,7 @@ object RubygemsPlugin extends AutoPlugin {
       }
       val rubyGemsBin = rubyGemsHome / "bin"
       val status = jruby(rubyGemsHome).run(
-        (List("-S", rubyGemsBin.getAbsolutePath + "/" + args(0)) ++ args.slice(1, args.size)).toArray[String])
+        (List("-S", rubyGemsBin.getAbsolutePath.replaceAllLiterally("\\", "/").replaceAllLiterally("C:","/C:") + "/" + args(0)) ++ args.slice(1, args.size)).toArray[String])
       if (status.getStatus != 0) {
         throw new CompileFailed(Array(), "Gem command failed!", Array())
       }
