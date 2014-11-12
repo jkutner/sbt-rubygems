@@ -10,7 +10,7 @@ homepage := Some(url("https://github.com/jkutner/sbt-rubygems"))
 
 scalaVersion in Global := "2.10.4"
 
-version := "1.2-SNAPSHOT"
+version := "1.2"
 
 libraryDependencies ++= Seq(
   "org.jruby" % "jruby-complete" % "1.7.16.1",

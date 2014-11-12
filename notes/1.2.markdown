@@ -1,0 +1,4 @@
+#scala @scala_sbt @rubygems @jruby
+
+* Updated to support the unfortunate souls sentenced to Windows.
+* Dependency on JRuby updated to latest (1.7.16.1)
